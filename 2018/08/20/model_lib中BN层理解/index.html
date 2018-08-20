@@ -79,13 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
+<meta name="description" content="对model_lib文件的理解(更新中) Caffe SSD目标检测，代码实现在两个文件中。生成网络的代码位于ssd_pascal.py中，该文件中又包含了model_libs.py文件，该文件定义了一些函数其中包括了各种BaseNet(如:VGG, ZF-Net, RES-Net等)和一些常见的Layer(如：ConvBNLayer和DeconvBNLayer等)鉴于该文件对于我阅读起来有些困难">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Just Writing...">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/08/20/model_lib中BN层理解/index.html">
 <meta property="og:site_name" content="Just Writing...">
+<meta property="og:description" content="对model_lib文件的理解(更新中) Caffe SSD目标检测，代码实现在两个文件中。生成网络的代码位于ssd_pascal.py中，该文件中又包含了model_libs.py文件，该文件定义了一些函数其中包括了各种BaseNet(如:VGG, ZF-Net, RES-Net等)和一些常见的Layer(如：ConvBNLayer和DeconvBNLayer等)鉴于该文件对于我阅读起来有些困难">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-20T13:10:18.177Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Just Writing...">
+<meta name="twitter:description" content="对model_lib文件的理解(更新中) Caffe SSD目标检测，代码实现在两个文件中。生成网络的代码位于ssd_pascal.py中，该文件中又包含了model_libs.py文件，该文件定义了一些函数其中包括了各种BaseNet(如:VGG, ZF-Net, RES-Net等)和一些常见的Layer(如：ConvBNLayer和DeconvBNLayer等)鉴于该文件对于我阅读起来有些困难">
 
 
 
@@ -115,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/20/model_lib中BN层理解/"/>
 
 
 
 
 
-  <title>Just Writing...</title>
+  <title> | Just Writing...</title>
   
 
 
@@ -140,8 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -234,128 +237,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/20/daily-share8-20/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大雏菊">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Just Writing...">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/20/daily-share8-20/" itemprop="url">daily_share8.20</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-20T21:22:05+08:00">
-                2018-08-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -385,9 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/20/model_lib中BN层理解/" itemprop="url">未命名</a></h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -437,9 +319,7 @@
       
 
       
-        
-          
-            <h2>对model_lib文件的理解(更新中)</h2>
+        <h2>对model_lib文件的理解(更新中)</h2>
 <p>Caffe SSD目标检测，代码实现在两个文件中。生成网络的代码位于ssd_pascal.py中，该文件中又包含了model_libs.py文件，该文件定义了一些函数其中包括了各种BaseNet(如:VGG, ZF-Net, RES-Net等)和一些常见的Layer(如：ConvBNLayer和DeconvBNLayer等)鉴于该文件对于我阅读起来有些困难，因此就开了篇博客记录下相关笔记，push自己一把</p>
 <p>首先进行model_lib.py文件的阅读，对其中不理解的地方做了简要注释，希望对阅读到的人有所收获。</p>
 <p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> caffe</span><br><span class="line"><span class="keyword">from</span> caffe <span class="keyword">import</span> layers <span class="keyword">as</span> L</span><br><span class="line"><span class="keyword">from</span> caffe <span class="keyword">import</span> params <span class="keyword">as</span> P</span><br><span class="line"><span class="keyword">from</span> caffe.proto <span class="keyword">import</span> caffe_pb2</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check_if_exist</span><span class="params">(path)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> os.path.exists(path)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_if_not_exist</span><span class="params">(path)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(path):</span><br><span class="line">        os.makedirs(path)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">UnpackVariable</span><span class="params">(var, num)</span>:</span></span><br><span class="line"><span class="comment"># UnpackVariable(1, 2) -&gt; [1,1]</span></span><br><span class="line"><span class="comment"># UnpackVariable([1,1], 2) -&gt; [1,1]</span></span><br><span class="line"><span class="comment"># UnpackVariable([1], 2) -&gt; [1,1]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 下面这行代码看上去很奇怪，查了一下。但是自己在python中直接运行 len &gt; 0 是报错的</span></span><br><span class="line"><span class="comment"># It's a kind of checking on the built-in function len.</span></span><br><span class="line"><span class="comment"># answer from https://github.com/intel/caffe/issues/159</span></span><br><span class="line">  <span class="keyword">assert</span> len &gt; <span class="number">0</span></span><br><span class="line">  <span class="keyword">if</span> type(var) <span class="keyword">is</span> list <span class="keyword">and</span> len(var) == num:</span><br><span class="line">    <span class="keyword">return</span> var</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    ret = []</span><br><span class="line">    <span class="keyword">if</span> type(var) <span class="keyword">is</span> list:</span><br><span class="line">      <span class="keyword">assert</span> len(var) == <span class="number">1</span></span><br><span class="line">      <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">0</span>, num):</span><br><span class="line">        ret.append(var[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">0</span>, num):</span><br><span class="line">        ret.append(var)</span><br><span class="line">    <span class="keyword">return</span> ret</span><br></pre></td></tr></table></figure></p>
@@ -458,8 +338,6 @@
 <h5>DeConv(without bias) ——&gt; BN ——&gt; Scale or Bias ——&gt; ReLU</h5>
 <p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ConvBNLayer</span><span class="params">(net, from_layer, out_layer, use_bn, use_relu, num_output,</span></span></span><br><span class="line"><span class="function"><span class="params">    kernel_size, pad, stride, dilation=<span class="number">1</span>, use_scale=True, lr_mult=<span class="number">1</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">    conv_prefix=<span class="string">''</span>, conv_postfix=<span class="string">''</span>, bn_prefix=<span class="string">''</span>, bn_postfix=<span class="string">'_bn'</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">    scale_prefix=<span class="string">''</span>, scale_postfix=<span class="string">'_scale'</span>, bias_prefix=<span class="string">''</span>, bias_postfix=<span class="string">'_bias'</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">    **bn_params)</span>:</span></span><br><span class="line">  <span class="keyword">if</span> use_bn:</span><br><span class="line">    <span class="comment"># parameters for convolution layer with batchnorm.</span></span><br><span class="line">    kwargs = &#123;</span><br><span class="line">        <span class="string">'param'</span>: [dict(lr_mult=lr_mult, decay_mult=<span class="number">1</span>)],</span><br><span class="line">        <span class="string">'weight_filler'</span>: dict(type=<span class="string">'gaussian'</span>, std=<span class="number">0.01</span>),</span><br><span class="line">        <span class="string">'bias_term'</span>: <span class="keyword">False</span>, <span class="comment"># 与ConvBNLayerBias函数不同就在这，这里bias_term设置为false，即卷积层只算W不算Bias</span></span><br><span class="line">        &#125;</span><br><span class="line">    <span class="comment"># 之后的都一样了</span></span><br></pre></td></tr></table></figure></p>
 
-          
-        
       
     </div>
     
@@ -476,143 +354,32 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/06/7.6leetcode/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大雏菊">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Just Writing...">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/06/7.6leetcode/" itemprop="url">7.6 leetcode</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-06T00:00:00+08:00">
-                2018-07-06
-              </time>
+              <a href="/2018/07/06/7.6leetcode/" rel="next" title="7.6 leetcode">
+                <i class="fa fa-chevron-left"></i> 7.6 leetcode
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
+              <a href="/2018/08/20/daily-share8-20/" rel="prev" title="daily_share8.20">
+                daily_share8.20 <i class="fa fa-chevron-right"></i>
+              </a>
             
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h1>7.6号leetcode</h1>
-<p>今日leetcode主要学习了DFS即深度优先搜索这一算法，效果还可以，但感觉复杂度还蛮高的，用到别的问题会出现TLE问题。</p>
-<ol>
-<li>P39</li>
-</ol>
-<p><img src="../images/39.png" alt="P39"></p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span>	</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">combinationSum</span><span class="params">(self, candidates, target)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type candidates: List[int]</span></span><br><span class="line"><span class="string">        :type target: int</span></span><br><span class="line"><span class="string">        :rtype: List[List[int]]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        res = []</span><br><span class="line">        candidates.sort()</span><br><span class="line">        self.dfs(candidates, target, <span class="number">0</span>, [], res)</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self, nums, target, index, path, res)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> target &lt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">elif</span> target == <span class="number">0</span>:</span><br><span class="line">            res.append(path)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(index, len(nums)):</span><br><span class="line">            self.dfs(nums, target-nums[i], i, path + [nums[i]], res)</span><br><span class="line"></span><br><span class="line">sol = Solution()</span><br><span class="line">out = sol.combinationSum([<span class="number">2</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">7</span>], <span class="number">7</span>)</span><br><span class="line">print(out)</span><br></pre></td></tr></table></figure></p>
-<ol start="2">
-<li>P40
-<img src="../images/40.png" alt="P40"></li>
-</ol>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">combinationSum</span><span class="params">(self, candidates, target)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type candidates: List[int]</span></span><br><span class="line"><span class="string">        :type target: int</span></span><br><span class="line"><span class="string">        :rtype: List[List[int]]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        res = []</span><br><span class="line">        candidates.sort()</span><br><span class="line">        self.dfs(candidates, target, <span class="number">0</span>, [], res)</span><br><span class="line">        real_out = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> o <span class="keyword">in</span> res:</span><br><span class="line">            a = tuple(o)</span><br><span class="line">            real_out.setdefault(a)</span><br><span class="line"></span><br><span class="line">        rr_out = []</span><br><span class="line">        <span class="keyword">for</span> r <span class="keyword">in</span> real_out.keys():</span><br><span class="line">            r = list(r)</span><br><span class="line">            rr_out.append(r)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> rr_out</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self, nums, target, index, path, res)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> target &lt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">elif</span> target == <span class="number">0</span>:</span><br><span class="line">            res.append(path)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(index, len(nums)):</span><br><span class="line">            self.dfs(nums, target-nums[i], i+<span class="number">1</span>, path + [nums[i]], res)</span><br><span class="line"></span><br><span class="line">sol = Solution()</span><br><span class="line">out = sol.combinationSum([<span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">-2</span>, <span class="number">2</span>], <span class="number">0</span>)</span><br><span class="line">print(out)</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -622,276 +389,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/05/7.5leetcode/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大雏菊">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Just Writing...">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/05/7.5leetcode/" itemprop="url">7.5 leetcode</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-05T00:00:00+08:00">
-                2018-07-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1>今日份的leetcode</h1>
-<ol>
-<li>P50</li>
-</ol>
-<p><img src="../images/1.png" alt="P50">
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">myPow</span><span class="params">(self, x, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type x: float</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :rtype: float</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> x == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> n &gt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">if</span> n % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">return</span> self.myPow(x * x, int(n / <span class="number">2</span>))</span><br><span class="line">            <span class="keyword">elif</span> n % <span class="number">2</span> != <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">return</span> x * self.myPow(x, n - <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span> / self.myPow(x, -n)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">x = <span class="number">2</span></span><br><span class="line">n = <span class="number">10</span></span><br><span class="line">sol = Solution()</span><br><span class="line">print(sol.myPow(x, n))</span><br></pre></td></tr></table></figure></p>
-<p>按常规一个一个迭代乘法，会出现超时错误，这种对半乘的话确实快很多。</p>
-<ol start="2">
-<li>P49
-<img src="../images/2.png" alt="P50"></li>
-</ol>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">groupAnagrams</span><span class="params">(self, strs)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type strs: List[str]</span></span><br><span class="line"><span class="string">        :rtype: List[List[str]]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        out = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> s <span class="keyword">in</span> strs:</span><br><span class="line">            out.setdefault(<span class="string">''</span>.join(sorted(s)), []).append(s)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> list(out.values())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sol = Solution()</span><br><span class="line">print(sol.groupAnagrams([<span class="string">''</span>, <span class="string">''</span>, <span class="string">'ab'</span>]))</span><br></pre></td></tr></table></figure></p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">groupAnagrams</span><span class="params">(self, strs)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type strs: List[str]</span></span><br><span class="line"><span class="string">        :rtype: List[List[str]]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        out = []</span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> strs:</span><br><span class="line">            count = <span class="keyword">True</span></span><br><span class="line">            <span class="keyword">for</span> o <span class="keyword">in</span> out:</span><br><span class="line">                <span class="keyword">if</span> c == <span class="string">''</span> <span class="keyword">and</span> c == o[<span class="number">0</span>]:</span><br><span class="line">                    o.append(c)</span><br><span class="line">                    count = <span class="keyword">False</span></span><br><span class="line">                <span class="keyword">if</span> len(o[<span class="number">0</span>]) == len(c) <span class="keyword">and</span> c <span class="keyword">in</span> pailie(o[<span class="number">0</span>]) <span class="keyword">and</span> count:</span><br><span class="line">                    o.append(c)</span><br><span class="line">                    count = <span class="keyword">False</span></span><br><span class="line">            <span class="keyword">if</span> count:</span><br><span class="line">                out.append([c])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> out</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pailie</span><span class="params">(strs)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> len(strs) == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> strs</span><br><span class="line">    result = []</span><br><span class="line">    <span class="keyword">for</span> idx, c <span class="keyword">in</span> enumerate(strs):</span><br><span class="line">        result += [c + substr <span class="keyword">for</span> substr <span class="keyword">in</span> pailie(strs[:idx] + strs[idx + <span class="number">1</span>:])]</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">sol = Solution()</span><br><span class="line">print(sol.groupAnagrams([<span class="string">'aba'</span>, <span class="string">'bac'</span>, <span class="string">'ab'</span>]))</span><br></pre></td></tr></table></figure></p>
-<p>第二个是自己搞得(pailie函数是抄的)，然后出现了超时错误，确实在全排列内块太慢了，然后看了眼discussion，发现了sorted方法，惊了个呆</p>
-<ol start="3">
-<li>P47
-<img src="../images/3.png" alt="P47"></li>
-</ol>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"></span><br><span class="line">nums = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">out = list(itertools.permutations(nums))</span><br><span class="line">real_out = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> out:</span><br><span class="line">    real_out.setdefault(c)</span><br><span class="line"></span><br><span class="line">out = list(real_out.keys())</span><br><span class="line"></span><br><span class="line">output = []</span><br><span class="line"><span class="keyword">for</span> o <span class="keyword">in</span> out:</span><br><span class="line">    output.append(list(o))</span><br><span class="line">print(output)</span><br></pre></td></tr></table></figure></p>
-<ol start="4">
-<li>P48
-<img src="../images/4.png" alt="P48"></li>
-</ol>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">matrix = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],</span><br><span class="line">          [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>],</span><br><span class="line">          [<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]]</span><br><span class="line"></span><br><span class="line">matrix.reverse()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(matrix)):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(i):</span><br><span class="line">        <span class="keyword">if</span> i != j:</span><br><span class="line">            matrix[j][i], matrix[i][j] = matrix[i][j], matrix[j][i]</span><br><span class="line"></span><br><span class="line">print(matrix)</span><br></pre></td></tr></table></figure></p>
-<p>看了discussion，两个for的range，一个是len(matrix)另一个是i，小trick了</p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/29/Leetcode/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="大雏菊">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Just Writing...">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/29/Leetcode/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-29T09:21:40+08:00">
-                2018-06-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1>Leetcode</h1>
-<p>开一个Leetcode刷题的记录文章，一共800多道题，先慢慢刷着。
-希望自己能坚持下来。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -899,6 +401,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -919,8 +425,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -962,6 +477,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">对model_lib文件的理解(更新中)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">Conv(with bias) ——&gt; BN ——&gt; Scale or Bias ——&gt; ReLU</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">DeConv ——&gt; BN ——&gt; Scale or Bias ——&gt; ReLU</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">DeConv(without bias) ——&gt; BN ——&gt; Scale or Bias ——&gt; ReLU</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1095,6 +626,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
