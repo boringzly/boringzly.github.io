@@ -79,20 +79,22 @@
 
 
 
-<meta name="description" content="7.6号leetcode 今日leetcode主要学习了DFS即深度优先搜索这一算法，效果还可以，但感觉复杂度还蛮高的，用到别的问题会出现TLE问题。  P39   12345678910111213141516171819202122232425class Solution:	    def combinationSum(self, candidates, target):        &quot;&quot;&quot;">
+<meta name="description" content="SSD default box 简述 2018.8.21 再push自己一把，今天搞一下这个ssd 中 default box的设计。 先贴一张SSD整体流程图  很直觉的来说，SSD通过结合多层级特征图进行物体位置的预测。所以在其中default box(或者叫prior box)的尺寸设计就非常重要了，如果给定一个很好的prior box，直觉上来说网络就更容易收敛。本文通过对论文及代码的解读">
 <meta property="og:type" content="article">
-<meta property="og:title" content="7.6 leetcode">
-<meta property="og:url" content="http://yoursite.com/2018/07/06/7.6leetcode/index.html">
+<meta property="og:title" content="Caffe SSD Default Box">
+<meta property="og:url" content="http://yoursite.com/2018/08/20/Caffe-SSD-DefaultBox/index.html">
 <meta property="og:site_name" content="Just Writing...">
-<meta property="og:description" content="7.6号leetcode 今日leetcode主要学习了DFS即深度优先搜索这一算法，效果还可以，但感觉复杂度还蛮高的，用到别的问题会出现TLE问题。  P39   12345678910111213141516171819202122232425class Solution:	    def combinationSum(self, candidates, target):        &quot;&quot;&quot;">
+<meta property="og:description" content="SSD default box 简述 2018.8.21 再push自己一把，今天搞一下这个ssd 中 default box的设计。 先贴一张SSD整体流程图  很直觉的来说，SSD通过结合多层级特征图进行物体位置的预测。所以在其中default box(或者叫prior box)的尺寸设计就非常重要了，如果给定一个很好的prior box，直觉上来说网络就更容易收敛。本文通过对论文及代码的解读">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/07/06/images/39.png">
-<meta property="og:image" content="http://yoursite.com/2018/07/06/images/40.png">
-<meta property="og:updated_time" content="2018-07-06T13:15:19.773Z">
+<meta property="og:image" content="http://yoursite.com/2018/08/20/md_pic/ssd_%E6%B5%81%E7%A8%8B.png">
+<meta property="og:image" content="http://yoursite.com/2018/08/20/md_pic/ssd_%E6%A3%80%E6%B5%8B.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/08/20/md_pic/box.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/08/20/md_pic/default_box.jpg">
+<meta property="og:updated_time" content="2018-08-22T13:29:59.251Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="7.6 leetcode">
-<meta name="twitter:description" content="7.6号leetcode 今日leetcode主要学习了DFS即深度优先搜索这一算法，效果还可以，但感觉复杂度还蛮高的，用到别的问题会出现TLE问题。  P39   12345678910111213141516171819202122232425class Solution:	    def combinationSum(self, candidates, target):        &quot;&quot;&quot;">
-<meta name="twitter:image" content="http://yoursite.com/2018/07/06/images/39.png">
+<meta name="twitter:title" content="Caffe SSD Default Box">
+<meta name="twitter:description" content="SSD default box 简述 2018.8.21 再push自己一把，今天搞一下这个ssd 中 default box的设计。 先贴一张SSD整体流程图  很直觉的来说，SSD通过结合多层级特征图进行物体位置的预测。所以在其中default box(或者叫prior box)的尺寸设计就非常重要了，如果给定一个很好的prior box，直觉上来说网络就更容易收敛。本文通过对论文及代码的解读">
+<meta name="twitter:image" content="http://yoursite.com/2018/08/20/md_pic/ssd_%E6%B5%81%E7%A8%8B.png">
 
 
 
@@ -122,14 +124,14 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/06/7.6leetcode/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/20/Caffe-SSD-DefaultBox/"/>
 
 
 
 <meta name="google-site-verification" content="SNq8aTFNqyQa-UEKRfIUa3Pipl1ihyA7-b6FPpt0fgI" />
 
 
-  <title>7.6 leetcode | Just Writing...</title>
+  <title>Caffe SSD Default Box | Just Writing...</title>
   
 
 
@@ -256,7 +258,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/06/7.6leetcode/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/20/Caffe-SSD-DefaultBox/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="大雏菊">
@@ -273,7 +275,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">7.6 leetcode</h1>
+          <h1 class="post-title" itemprop="name headline">Caffe SSD Default Box</h1>
         
 
         <div class="post-meta">
@@ -285,8 +287,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-06T00:00:00+08:00">
-                2018-07-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-20T21:22:05+08:00">
+                2018-08-20
               </time>
             
 
@@ -323,18 +325,106 @@
       
 
       
-        <h1>7.6号leetcode</h1>
-<p>今日leetcode主要学习了DFS即深度优先搜索这一算法，效果还可以，但感觉复杂度还蛮高的，用到别的问题会出现TLE问题。</p>
+        <h2>SSD default box 简述</h2>
+<p>2018.8.21
+再push自己一把，今天搞一下这个ssd 中 default box的设计。</p>
+<p>先贴一张SSD整体流程图
+<img src="../md_pic/ssd_%E6%B5%81%E7%A8%8B.png" alt="">
+很直觉的来说，SSD通过结合多层级特征图进行物体位置的预测。所以在其中default box(或者叫prior box)的尺寸设计就非常重要了，如果给定一个很好的prior box，直觉上来说网络就更容易收敛。本文通过对论文及代码的解读，defalut box这些参数的计算流程，并给出一些计算实例。</p>
+<p>看一下论文中对Defult Box的设计，本文关心的是这些个Box的<strong>Shape</strong>的设计，如何给定一个很好的shape来使我们的SSD网络能快速收敛并且达到令人满意的精度。</p>
+<p>首先先读一下论文中关于Default Box这一段(懒得看英文可以直接看我标注的中文)</p>
+<h4>Choosing scales and aspect ratios for default boxes</h4>
+<p>To handle different object scales, some methods [4,9] suggest processing the image at different sizes and combining the result safterwards.However,by utilizing feature maps from several different layers in a single network for prediction we can mimic the same effect,while also sharing parameters across all object scales.Previous works[10,11]have shown that using feature maps from the lower layers can improve semantic segmentation quality because the lower layers capture more ﬁne details of the input objects.Similarly, [12]showed that adding global context pooled from a feature map can help smooth the segmentation results.</p>
+<blockquote>
+<p>这段解释了通过利用多层级的特征图，可以达到对原始图像进行尺度变化来检测不同size的物体的效果。</p>
+</blockquote>
+<p>Motivated by these methods, we use both the lower and upper feature maps for detection.Figure1 shows two exemplar feature maps(8×8 and 4×4)which are used in the framework. In practice, we can use many more with small computational overhead. Feature maps from different levels within a network are known to have different (empirical) receptive ﬁeld sizes [13]. Fortunately, within the SSD framework, the default boxes do not necessary need to correspond to the actual receptive ﬁelds of each layer. We design the tiling of default boxes so that speciﬁc feature maps learn to be responsive to particular scales of the objects. Suppose we want to use m feature maps for prediction. The scale of the default boxes for each feature map is computed as:</p>
+<blockquote>
+<p>这段说明Feature Map上每一个像素都包含N个Default Box，不同层级的特征图会对不同Size的目标做出响应，后面的高层级特征对负责检测大目标，前面小特征图负责检测小型目标</p>
+</blockquote>
+<p>$$s_k = s_{min} + \frac {s_{max} - s_{min}} {m - 1} (k - 1), k \in [1, m]$$</p>
+<p>where $s_{min}$ is 0.2 and $s_{max}$ is 0.9, meaning the lowest layer has a scale of 0.2 and the highest layer has a scale of 0.9, and all layers in between are regularly spaced. We impose different aspect ratios for the default boxes, and denote them as $a_r \in [1,2,3, 1/2, 1/3]$. We can compute the width $(w_k^a = s_k\sqrt a_r)$ and height $(w_k^a = s_k / \sqrt a_r)$ for each default box. For the aspect ratio of 1, we also add a default box whose scale is $(s_k' = \sqrt {s_ks_{k+1}})$, resulting in 6 default boxes per feature map location. We set the center of each default box to $(\frac {i+0.5} {|fk|} , \frac {j+0.5} {|fk|} )$, where |fk| is the size of the k-th square feature map, i,j ∈ [0,|fk|). In practice, one can also design a distribution of default boxes to best ﬁt a speciﬁc dataset. How to design the optimal tiling is an open question as well.</p>
+<blockquote>
+<p>这段给出了default box的长宽比和长跟宽的计算方法，后面还会详细讨论</p>
+</blockquote>
+<p><strong>By combining predictions for all default boxes with different scales and aspect ratios from all locations of many feature maps, we have a diverse set of predictions, covering various input object sizes and shapes.</strong></p>
+<p><img src="../md_pic/ssd_%E6%A3%80%E6%B5%8B.jpg" alt=""></p>
+<p>For example, in the picture, the dog is matched to a default box in the 4×4 feature map, but not to any default boxes in the 8×8 feature map. This is because those boxes have different scales and do not match the dog box, and therefore are considered as negatives during training.</p>
+<hr>
+<p>这里给出一个直觉性的结论，SSD是在特征图上完成目标检测的。在N个特征图上安放不同大小、长宽比的Boxes，高层级特征图负责检测大目标，低层级特征图负责检测小目标。</p>
+<p>论文中计算$s_k$的公式：
+$$
+s_k = s_{min} + \frac {s_{max} - s_{min}} {m - 1} (k - 1), k \in [1, m]
+$$</p>
+<p>这里$s_{min}$表示min_ratio，最低层的特征图与原图之间的比例为20%，这里有种感受野的感觉。$s_{max}$表示max_ratio，最高层的特征图与原图之间的比例为90%。其实这里$s_k$其实是计算的是比例系数，并不是真正的box size，我们还需要通过它计算min_size和max_size，从而算出box的具体尺寸。</p>
+<p>比如说取出6个特征层进行检测['conv4_3', 'fc7', 'conv6_2', 'conv7_2', 'conv8_2'， 'conv9_2']
+(多说一句，这里虽说写fc7但它并不是全连接层，同样是卷积层，有的同学读代码的时候会产生迷惑)</p>
+<p>下面的min_dim为输入图像中最小的尺寸
+第一层的feature map对应的min_size和max_size分别是：
+s1 * min_dim
+s2 * min_dim
+第二层的feature map对应的min_size和max_size分别是：
+s2 * min_dim
+s3 * min_dim
+以此类推。</p>
+<p>若min_dim = 300</p>
+<table>
+<thead>
+<tr>
+<th>feature map</th>
+<th>min_size</th>
+<th>max_size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>conv4_3</td>
+<td>30</td>
+<td>60</td>
+</tr>
+<tr>
+<td>fc7</td>
+<td>60</td>
+<td>111</td>
+</tr>
+<tr>
+<td>conv6_2</td>
+<td>111</td>
+<td>162</td>
+</tr>
+<tr>
+<td>conv7_2</td>
+<td>162</td>
+<td>213</td>
+</tr>
+<tr>
+<td>conv8_2</td>
+<td>213</td>
+<td>264</td>
+</tr>
+<tr>
+<td>conv9_2</td>
+<td>264</td>
+<td>315</td>
+</tr>
+</tbody>
+</table>
+<p>假定aspect_ratios为([2], [2, 3], [2, 3], [2, 3], [2], [2])
+以第一个feature map为例，在第一个feature map中输出4个boxes，如下图所示：
+<img src="../md_pic/box.jpg" alt=""></p>
+<p>之后根据上述算出的max_size和min_size结合预先定义的长宽比，根据下图中的公式，算出每个具体box的长跟宽的尺寸</p>
+<p><img src="../md_pic/default_box.jpg" alt=""></p>
+<p>根据检测物体的大小设计自己的box，通过上述流程算出个特征层box的尺寸</p>
+<p>再default box问题上，影响最终结果的有以下几个因素：</p>
 <ol>
-<li>P39</li>
+<li>抽取哪几个层级特征层来进行检测，是否需要进行特征层的融合来提升精度</li>
+<li>如何设计我的default box的长宽比</li>
+<li>在每一个feature map上的像素上，需要安放多少个boxes</li>
+<li>这些boxes的长跟宽又该怎么计算</li>
+<li>是否一定需要把box放在feature map每一个像素的中心</li>
+<li>max_out 和 负样本IOU阈值的设计问题</li>
 </ol>
-<p><img src="../images/39.png" alt="P39"></p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span>	</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">combinationSum</span><span class="params">(self, candidates, target)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type candidates: List[int]</span></span><br><span class="line"><span class="string">        :type target: int</span></span><br><span class="line"><span class="string">        :rtype: List[List[int]]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        res = []</span><br><span class="line">        candidates.sort()</span><br><span class="line">        self.dfs(candidates, target, <span class="number">0</span>, [], res)</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self, nums, target, index, path, res)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> target &lt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">elif</span> target == <span class="number">0</span>:</span><br><span class="line">            res.append(path)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(index, len(nums)):</span><br><span class="line">            self.dfs(nums, target-nums[i], i, path + [nums[i]], res)</span><br><span class="line"></span><br><span class="line">sol = Solution()</span><br><span class="line">out = sol.combinationSum([<span class="number">2</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">7</span>], <span class="number">7</span>)</span><br><span class="line">print(out)</span><br></pre></td></tr></table></figure></p>
-<ol start="2">
-<li>P40
-<img src="../images/40.png" alt="P40"></li>
-</ol>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">combinationSum</span><span class="params">(self, candidates, target)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type candidates: List[int]</span></span><br><span class="line"><span class="string">        :type target: int</span></span><br><span class="line"><span class="string">        :rtype: List[List[int]]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        res = []</span><br><span class="line">        candidates.sort()</span><br><span class="line">        self.dfs(candidates, target, <span class="number">0</span>, [], res)</span><br><span class="line">        real_out = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> o <span class="keyword">in</span> res:</span><br><span class="line">            a = tuple(o)</span><br><span class="line">            real_out.setdefault(a)</span><br><span class="line"></span><br><span class="line">        rr_out = []</span><br><span class="line">        <span class="keyword">for</span> r <span class="keyword">in</span> real_out.keys():</span><br><span class="line">            r = list(r)</span><br><span class="line">            rr_out.append(r)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> rr_out</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self, nums, target, index, path, res)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> target &lt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">elif</span> target == <span class="number">0</span>:</span><br><span class="line">            res.append(path)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(index, len(nums)):</span><br><span class="line">            self.dfs(nums, target-nums[i], i+<span class="number">1</span>, path + [nums[i]], res)</span><br><span class="line"></span><br><span class="line">sol = Solution()</span><br><span class="line">out = sol.combinationSum([<span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">-2</span>, <span class="number">2</span>], <span class="number">0</span>)</span><br><span class="line">print(out)</span><br></pre></td></tr></table></figure></p>
+<p>这些问题的实验性意味很强，真对不同的Task需要单独考虑。</p>
 
       
     </div>
@@ -359,8 +449,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/05/7.5leetcode/" rel="next" title="7.5 leetcode">
-                <i class="fa fa-chevron-left"></i> 7.5 leetcode
+              <a href="/2018/08/20/daily-share8-20/" rel="next" title="daily_share8.20">
+                <i class="fa fa-chevron-left"></i> daily_share8.20
               </a>
             
           </div>
@@ -368,10 +458,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/20/daily-share8-20/" rel="prev" title="daily_share8.20">
-                daily_share8.20 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -485,7 +571,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">7.6号leetcode</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">SSD default box 简述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.0.1.</span> <span class="nav-text">Choosing scales and aspect ratios for default boxes</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
